@@ -8,8 +8,9 @@ Ministach operates on minimal mustach-like templates.
 const char * mytemplate = "This the syntax of {{ libname }} looks.";
 ```
 
-Do note that whitespace inside the "stach" -as I call it-
-are ignored
+Do note that whitespace inside the "stach" (as I call it)
+is ignored.
+
 To do something useful with it, we have to compile it first:
 
 ```C
