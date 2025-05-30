@@ -10,18 +10,18 @@
 enum {
     MINISTACH_OK,
     MINISTACH_EMPTY_STACH,       // "{{ }}" <- missing key in stach
-    MINISTACH_DUPLICATE_KEY,     // "{{ a b }}" <- multiple potential keys; probably if the input accidently contains something that resembles a stach
+    MINISTACH_DUPLICATE_KEY,     // "{{ a b }}" <- multiple potential keys; probable if the input accidentally contains something that resembles a stach
     MINISTACH_MALFORMED_CLOSING, // "{{ a } }" || "{{a\00"
     MINISTACH_DATA_FUN_ERROR,    // the user provided dfun() returned NULL
 };
 
 typedef struct {
-    int status; // non-0 signals an error during template compialation
-    int size;   // number of characters the RENDERED template will take up; NULL NOT ACOUNTED FOR
+    int status; // non-0 signals an error during template compilation
+    int size;   // number of characters the RENDERED template will take up; NULL NOT ACCOUNTED FOR
     const char * s;        // source string
     int staches_empty_top; // number of staches; internally used for indexing in a stack like fashion
     struct {
-        int beg; // first character to cut off (firt '{')
+        int beg; // first character to cut off (first '{')
         int end; // last  character to cut off (second '}')
         const char * value; // value returned by the user provided dfun()
     } staches[MINISTACH_MAX_STACHES];
